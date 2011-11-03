@@ -1,3 +1,9 @@
+# revision 15878
+# category Package
+# catalog-ctan /fonts/barcodes/willadt
+# catalog-date 2008-08-17 01:00:50 +0200
+# catalog-license lppl
+# catalog-version undef
 Name:		texlive-barcodes
 Version:	20080817
 Release:	1
@@ -65,6 +71,7 @@ script is needed.
 #- source
 %doc %{_texmfdistdir}/source/latex/barcodes/barcodes.dtx
 %doc %{_texmfdistdir}/source/latex/barcodes/barcodes.ins
+%doc %{_tlpkgobjdir}/*.tlpobj
 
 #-----------------------------------------------------------------------
 %prep
@@ -75,3 +82,5 @@ script is needed.
 %install
 mkdir -p %{buildroot}%{_texmfdistdir}
 cp -fpar fonts tex doc source %{buildroot}%{_texmfdistdir}
+mkdir -p %{buildroot}%{_tlpkgobjdir}
+cp -fpa tlpkg/tlpobj/*.tlpobj %{buildroot}%{_tlpkgobjdir}
