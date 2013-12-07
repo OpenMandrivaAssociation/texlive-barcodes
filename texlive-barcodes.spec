@@ -6,7 +6,7 @@
 # catalog-version undef
 Name:		texlive-barcodes
 Version:	20080817
-Release:	5
+Release:	6
 Summary:	Fonts for making barcodes
 Group:		Publishing
 URL:		http://www.ctan.org/tex-archive/fonts/barcodes/willadt
