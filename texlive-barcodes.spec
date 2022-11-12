@@ -1,19 +1,13 @@
-# revision 15878
-# category Package
-# catalog-ctan /fonts/barcodes/willadt
-# catalog-date 2008-08-17 01:00:50 +0200
-# catalog-license lppl
-# catalog-version undef
 Name:		texlive-barcodes
-Version:	20190228
+Version:	15878
 Release:	1
 Summary:	Fonts for making barcodes
 Group:		Publishing
 URL:		http://www.ctan.org/tex-archive/fonts/barcodes/willadt
 License:	LPPL
-Source0:	http://mirrors.ctan.org/systems/texlive/tlnet/archive/barcodes.tar.xz
-Source1:	http://mirrors.ctan.org/systems/texlive/tlnet/archive/barcodes.doc.tar.xz
-Source2:	http://mirrors.ctan.org/systems/texlive/tlnet/archive/barcodes.source.tar.xz
+Source0:	http://mirrors.ctan.org/systems/texlive/tlnet/archive/barcodes.r15878.tar.xz
+Source1:	http://mirrors.ctan.org/systems/texlive/tlnet/archive/barcodes.doc.r15878.tar.xz
+Source2:	http://mirrors.ctan.org/systems/texlive/tlnet/archive/barcodes.source.r15878.tar.xz
 BuildArch:	noarch
 BuildRequires:	texlive-tlpkg
 Requires(pre):	texlive-tlpkg
@@ -25,12 +19,12 @@ provided, and a set of examples; for some codes, a small Perl
 script is needed.
 
 %post
-    %{_sbindir}/texlive.post
+%{_sbindir}/texlive.post
 
 %postun
-    if [ $1 -eq 0 ]; then
+if [ $1 -eq 0 ]; then
 	%{_sbindir}/texlive.post
-    fi
+fi
 
 #-----------------------------------------------------------------------
 %files
@@ -64,25 +58,11 @@ script is needed.
 
 #-----------------------------------------------------------------------
 %prep
-%setup -c -a0 -a1 -a2
+%setup -c -a1 -a2
+%autopatch -p1
 
 %build
 
 %install
 mkdir -p %{buildroot}%{_texmfdistdir}
 cp -fpar fonts tex doc source %{buildroot}%{_texmfdistdir}
-
-
-%changelog
-* Tue Jan 03 2012 Paulo Andrade <pcpa@mandriva.com.br> 20080817-2
-+ Revision: 749447
-- Rebuild to reduce used resources
-
-* Sat Nov 05 2011 Paulo Andrade <pcpa@mandriva.com.br> 20080817-1
-+ Revision: 717881
-- texlive-barcodes
-- texlive-barcodes
-- texlive-barcodes
-- texlive-barcodes
-- texlive-barcodes
-
